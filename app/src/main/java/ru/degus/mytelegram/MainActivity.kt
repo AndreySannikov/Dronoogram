@@ -1,20 +1,14 @@
 package ru.degus.mytelegram
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.degus.mytelegram.activities.RegisterActivity
 import ru.degus.mytelegram.databinding.ActivityMainBinding
-import ru.degus.mytelegram.models.User
 import ru.degus.mytelegram.ui.fragments.ChatsFragment
 import ru.degus.mytelegram.ui.objects.AppDrawer
 import ru.degus.mytelegram.utilits.*

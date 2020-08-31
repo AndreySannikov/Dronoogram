@@ -4,8 +4,6 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.View
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
@@ -18,14 +16,12 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 import ru.degus.mytelegram.R
-import ru.degus.mytelegram.models.User
 import ru.degus.mytelegram.ui.fragments.ContactsFragment
 import ru.degus.mytelegram.ui.fragments.SettingsFragment
 import ru.degus.mytelegram.utilits.APP_ACTIVITY
 import ru.degus.mytelegram.utilits.USER
 import ru.degus.mytelegram.utilits.downloadAndSetImage
 import ru.degus.mytelegram.utilits.replaceFragment
-import java.text.ParsePosition
 
 class AppDrawer {
     private lateinit var mDrawer: Drawer
