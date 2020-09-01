@@ -7,9 +7,12 @@ import androidx.core.content.ContextCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.degus.mytelegram.activities.RegisterActivity
+import ru.degus.mytelegram.database.AUTH
+import ru.degus.mytelegram.database.initFirebase
+import ru.degus.mytelegram.database.initUser
 import ru.degus.mytelegram.databinding.ActivityMainBinding
 import ru.degus.mytelegram.ui.fragments.ChatsFragment
+import ru.degus.mytelegram.ui.fragments.register.EnterPhoneNumberFragment
 import ru.degus.mytelegram.ui.objects.AppDrawer
 import ru.degus.mytelegram.utilits.*
 
@@ -36,12 +39,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
+        setSupportActionBar(mToolbar)
         if (AUTH.currentUser != null) {
-            setSupportActionBar(mToolbar)
             mAppDrawer.create()
             replaceFragment(ChatsFragment(), false)
         } else {
-            replaceActivity(RegisterActivity())
+            replaceFragment(EnterPhoneNumberFragment(), false)
         }
     }
 

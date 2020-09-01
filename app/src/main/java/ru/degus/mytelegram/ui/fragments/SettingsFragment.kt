@@ -2,18 +2,14 @@ package ru.degus.mytelegram.ui.fragments
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.net.Uri
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.storage.StorageReference
-import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
 import ru.degus.mytelegram.R
-import ru.degus.mytelegram.activities.RegisterActivity
+import ru.degus.mytelegram.database.*
 import ru.degus.mytelegram.utilits.*
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
@@ -53,7 +49,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             R.id.settings_menu_exit -> {
                 AppStates.updateState(AppStates.OFFLINE)
                 AUTH.signOut()
-                APP_ACTIVITY.replaceActivity(RegisterActivity())
+                restartActivity()
             }
             R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
@@ -66,7 +62,9 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             && resultCode == RESULT_OK && data != null
         ) {
             val uri = CropImage.getActivityResult(data).uri
-            val path = REF_STORAGE_ROOT.child(FOLDER_PROFILE_IMAGE)
+            val path = REF_STORAGE_ROOT.child(
+                FOLDER_PROFILE_IMAGE
+            )
                 .child(CURRENT_UID)
             putImageToStorage(uri, path) {
                 getUrlFromStorage(path) {

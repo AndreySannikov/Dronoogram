@@ -1,18 +1,13 @@
-package ru.degus.mytelegram.ui.fragments
+package ru.degus.mytelegram.ui.fragments.register
 
 import androidx.fragment.app.Fragment
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_enter_phone_number.*
-import ru.degus.mytelegram.MainActivity
 import ru.degus.mytelegram.R
-import ru.degus.mytelegram.activities.RegisterActivity
-import ru.degus.mytelegram.utilits.AUTH
-import ru.degus.mytelegram.utilits.replaceActivity
-import ru.degus.mytelegram.utilits.replaceFragment
-import ru.degus.mytelegram.utilits.showToast
+import ru.degus.mytelegram.database.AUTH
+import ru.degus.mytelegram.utilits.*
 import java.util.concurrent.TimeUnit
 
 
@@ -29,7 +24,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
                 AUTH.signInWithCredential(credential).addOnCompleteListener {
                     if (it.isSuccessful) {
                         showToast("Welcome")
-                        (activity as RegisterActivity).replaceActivity(MainActivity())
+                        restartActivity()
                     } else showToast(it.exception?.message.toString())
                 }
             }
@@ -39,7 +34,12 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
             }
 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
-                replaceFragment(EnterCodeFragment(mPhoneNumber, id))
+                replaceFragment(
+                    EnterCodeFragment(
+                        mPhoneNumber,
+                        id
+                    )
+                )
             }
         }
         register_btn_next.setOnClickListener { sendCode() }
@@ -59,7 +59,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
             mPhoneNumber,
             60,
             TimeUnit.SECONDS,
-            activity as RegisterActivity,
+            APP_ACTIVITY,
             mCallback
         )
     }

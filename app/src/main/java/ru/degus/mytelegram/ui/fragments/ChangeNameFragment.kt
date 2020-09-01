@@ -2,6 +2,7 @@ package ru.degus.mytelegram.ui.fragments
 
 import kotlinx.android.synthetic.main.fragment_change_name.*
 import ru.degus.mytelegram.R
+import ru.degus.mytelegram.database.*
 import ru.degus.mytelegram.utilits.*
 
 class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
@@ -26,13 +27,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
             showToast(getString(R.string.settings_toast_name_is_empty))
         } else {
             val fullname = "$name $surname"
-            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_FULLNAME)
-                .setValue(fullname).addOnCompleteListener {
-                    showToast(getString(R.string.toast_data_update))
-                    USER.fullname = fullname
-                    APP_ACTIVITY.mAppDrawer.updateHeader()
-                    fragmentManager?.popBackStack()
-                }
+            setNameToDataBase(fullname)
         }
     }
 }

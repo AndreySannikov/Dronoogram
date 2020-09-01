@@ -2,6 +2,7 @@ package ru.degus.mytelegram.ui.fragments
 
 import kotlinx.android.synthetic.main.fragment_change_username.*
 import ru.degus.mytelegram.R
+import ru.degus.mytelegram.database.*
 import ru.degus.mytelegram.utilits.*
 import java.util.*
 
@@ -31,37 +32,12 @@ class ChangeUsernameFragment : BaseChangeFragment(R.layout.fragment_change_usern
     }
 
     private fun changeUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername).setValue(CURRENT_UID)
+        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUsername)
+            .setValue(CURRENT_UID)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    updateCurrentUsername()
+                    updateCurrentUsername(mNewUsername)
                 }
             }
     }
-
-    private fun updateCurrentUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_USERNAME).setValue(mNewUsername)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    showToast(getString(R.string.toast_data_update))
-                    deleteOldUsername()
-                } else {
-                    showToast(it.exception?.message.toString())
-                }
-            }
-    }
-
-    private fun deleteOldUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(USER.username).removeValue()
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    showToast(getString(R.string.toast_data_update))
-                    fragmentManager?.popBackStack()
-                    USER.username = mNewUsername
-                } else {
-                    showToast(it.exception?.message.toString())
-                }
-            }
-    }
-
 }

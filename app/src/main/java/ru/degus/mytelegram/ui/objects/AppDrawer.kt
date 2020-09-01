@@ -19,7 +19,7 @@ import ru.degus.mytelegram.R
 import ru.degus.mytelegram.ui.fragments.ContactsFragment
 import ru.degus.mytelegram.ui.fragments.SettingsFragment
 import ru.degus.mytelegram.utilits.APP_ACTIVITY
-import ru.degus.mytelegram.utilits.USER
+import ru.degus.mytelegram.database.USER
 import ru.degus.mytelegram.utilits.downloadAndSetImage
 import ru.degus.mytelegram.utilits.replaceFragment
 
@@ -122,8 +122,8 @@ class AppDrawer {
 
     private fun clickToItem(position: Int){
         when (position) {
-            7 -> APP_ACTIVITY.replaceFragment(SettingsFragment())
-            4 -> APP_ACTIVITY.replaceFragment(ContactsFragment())
+            7 -> replaceFragment(SettingsFragment())
+            4 -> replaceFragment(ContactsFragment())
         }
     }
 

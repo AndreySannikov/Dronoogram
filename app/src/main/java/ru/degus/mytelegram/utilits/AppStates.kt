@@ -1,5 +1,7 @@
 package ru.degus.mytelegram.utilits
 
+import ru.degus.mytelegram.database.*
+
 enum class AppStates(val state: String) {
     ONLINE("online"),
     OFFLINE("offline"),
