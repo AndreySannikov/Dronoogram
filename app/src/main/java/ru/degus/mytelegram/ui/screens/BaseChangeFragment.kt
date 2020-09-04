@@ -1,9 +1,7 @@
-package ru.degus.mytelegram.ui.fragments
+package ru.degus.mytelegram.ui.screens
 
-import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.drawerlayout.widget.DrawerLayout
 import ru.degus.mytelegram.MainActivity
 import ru.degus.mytelegram.R
 import ru.degus.mytelegram.utilits.APP_ACTIVITY

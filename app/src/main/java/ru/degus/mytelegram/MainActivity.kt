@@ -11,8 +11,8 @@ import ru.degus.mytelegram.database.AUTH
 import ru.degus.mytelegram.database.initFirebase
 import ru.degus.mytelegram.database.initUser
 import ru.degus.mytelegram.databinding.ActivityMainBinding
-import ru.degus.mytelegram.ui.fragments.ChatsFragment
-import ru.degus.mytelegram.ui.fragments.register.EnterPhoneNumberFragment
+import ru.degus.mytelegram.ui.screens.ChatsFragment
+import ru.degus.mytelegram.ui.screens.register.EnterPhoneNumberFragment
 import ru.degus.mytelegram.ui.objects.AppDrawer
 import ru.degus.mytelegram.utilits.*
 

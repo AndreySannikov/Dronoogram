@@ -1,4 +1,4 @@
-package ru.degus.mytelegram.ui.fragments
+package ru.degus.mytelegram.ui.screens
 
 import kotlinx.android.synthetic.main.fragment_change_name.*
 import ru.degus.mytelegram.R

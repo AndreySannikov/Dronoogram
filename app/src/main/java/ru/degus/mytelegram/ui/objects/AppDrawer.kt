@@ -16,8 +16,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 import ru.degus.mytelegram.R
-import ru.degus.mytelegram.ui.fragments.ContactsFragment
-import ru.degus.mytelegram.ui.fragments.SettingsFragment
+import ru.degus.mytelegram.ui.screens.ContactsFragment
+import ru.degus.mytelegram.ui.screens.SettingsFragment
 import ru.degus.mytelegram.utilits.APP_ACTIVITY
 import ru.degus.mytelegram.database.USER
 import ru.degus.mytelegram.utilits.downloadAndSetImage
