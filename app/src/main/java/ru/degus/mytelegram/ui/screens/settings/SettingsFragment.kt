@@ -1,4 +1,4 @@
-package ru.degus.mytelegram.ui.screens
+package ru.degus.mytelegram.ui.screens.settings
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -10,6 +10,7 @@ import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
 import ru.degus.mytelegram.R
 import ru.degus.mytelegram.database.*
+import ru.degus.mytelegram.ui.screens.BaseFragment
 import ru.degus.mytelegram.utilits.*
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {

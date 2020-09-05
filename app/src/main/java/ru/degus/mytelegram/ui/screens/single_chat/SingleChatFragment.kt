@@ -4,8 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.widget.AbsListView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +26,8 @@ import ru.degus.mytelegram.models.CommonModel
 import ru.degus.mytelegram.models.UserModel
 import ru.degus.mytelegram.ui.screens.BaseFragment
 import ru.degus.mytelegram.ui.message_recycler_view.views.AppViewFactory
+import ru.degus.mytelegram.ui.screens.main_list.MainListFragment
+import ru.degus.mytelegram.ui.screens.settings.ChangeNameFragment
 import ru.degus.mytelegram.utilits.*
 
 class SingleChatFragment(private val contact: CommonModel) : BaseFragment(R.layout.fragment_single_chat) {
@@ -56,6 +57,7 @@ class SingleChatFragment(private val contact: CommonModel) : BaseFragment(R.layo
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initFields() {
+        setHasOptionsMenu(true)
         mBottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet_choice)
         mBottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         mAppVoiceRecorder = AppVoiceRecorder()
@@ -186,6 +188,7 @@ class SingleChatFragment(private val contact: CommonModel) : BaseFragment(R.layo
             if (message.isEmpty()) {
                 showToast("Enter message")
             } else sendMessage(message, contact.id, TYPE_TEXT) {
+                saveToMainList(contact.id, TYPE_CHAT)
                 chat_input_message.setText("")
             }
         }
@@ -231,9 +234,27 @@ class SingleChatFragment(private val contact: CommonModel) : BaseFragment(R.layo
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         mAppVoiceRecorder.releaseRecorder()
         mAdapter.onDestroy()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        activity?.menuInflater?.inflate(R.menu.single_chat_action_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_clear_chat -> clearChat(contact.id) {
+                showToast("Chat cleared")
+                replaceFragment(MainListFragment())
+            }
+            R.id.menu_delete_chat -> deleteChat(contact.id) {
+                showToast("Chat deleted")
+                replaceFragment(MainListFragment())
+            }
+        }
+        return true
     }
 }

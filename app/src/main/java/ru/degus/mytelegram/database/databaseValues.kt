@@ -12,6 +12,7 @@ lateinit var REF_STORAGE_ROOT: StorageReference
 lateinit var USER: UserModel
 const val TYPE_TEXT = "text"
 const val NODE_USERS = "users"
+const val NODE_MAIN_LIST = "main_list"
 const val NODE_MESSAGES = "messages"
 const val NODE_USERNAMES = "usernames"
 const val NODE_PHONES = "phones"
@@ -30,3 +31,4 @@ const val CHILD_TYPE = "type"
 const val CHILD_FROM = "from"
 const val CHILD_TIMESTAMP = "timeStamp"
 const val CHILD_FILE_URL = "fileUrl"
+

@@ -11,7 +11,7 @@ import ru.degus.mytelegram.database.AUTH
 import ru.degus.mytelegram.database.initFirebase
 import ru.degus.mytelegram.database.initUser
 import ru.degus.mytelegram.databinding.ActivityMainBinding
-import ru.degus.mytelegram.ui.screens.ChatsFragment
+import ru.degus.mytelegram.ui.screens.main_list.MainListFragment
 import ru.degus.mytelegram.ui.screens.register.EnterPhoneNumberFragment
 import ru.degus.mytelegram.ui.objects.AppDrawer
 import ru.degus.mytelegram.utilits.*
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(mToolbar)
         if (AUTH.currentUser != null) {
             mAppDrawer.create()
-            replaceFragment(ChatsFragment(), false)
+            replaceFragment(MainListFragment(), false)
         } else {
             replaceFragment(EnterPhoneNumberFragment(), false)
         }

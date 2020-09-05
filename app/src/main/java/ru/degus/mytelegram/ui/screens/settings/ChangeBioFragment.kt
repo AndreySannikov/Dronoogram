@@ -1,8 +1,9 @@
-package ru.degus.mytelegram.ui.screens
+package ru.degus.mytelegram.ui.screens.settings
 
 import kotlinx.android.synthetic.main.fragment_change_bio.*
 import ru.degus.mytelegram.R
 import ru.degus.mytelegram.database.*
+import ru.degus.mytelegram.ui.screens.BaseChangeFragment
 
 class ChangeBioFragment : BaseChangeFragment(R.layout.fragment_change_bio) {
     override fun onResume() {
