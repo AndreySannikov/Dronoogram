@@ -155,6 +155,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/settings_change_photo"
+        android:elevation="@dimen/materialize_baseline_grid_small"
         android:layout_width="@dimen/settings_btn_change_photo_width"
         android:layout_height="@dimen/settings_btn_change_photo_height"
         android:src="@drawable/ic_camera"

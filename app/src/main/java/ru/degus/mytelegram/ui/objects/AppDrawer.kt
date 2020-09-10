@@ -16,10 +16,12 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader
 import com.mikepenz.materialdrawer.util.DrawerImageLoader
 import ru.degus.mytelegram.R
-import ru.degus.mytelegram.ui.screens.ContactsFragment
+import ru.degus.mytelegram.ui.screens.contacts.ContactsFragment
 import ru.degus.mytelegram.ui.screens.settings.SettingsFragment
 import ru.degus.mytelegram.utilits.APP_ACTIVITY
 import ru.degus.mytelegram.database.USER
+import ru.degus.mytelegram.ui.screens.groups.AddContactsAdapter
+import ru.degus.mytelegram.ui.screens.groups.AddContactsFragment
 import ru.degus.mytelegram.utilits.downloadAndSetImage
 import ru.degus.mytelegram.utilits.replaceFragment
 
@@ -122,8 +124,9 @@ class AppDrawer {
 
     private fun clickToItem(position: Int){
         when (position) {
-            7 -> replaceFragment(SettingsFragment())
+            1 -> replaceFragment(AddContactsFragment())
             4 -> replaceFragment(ContactsFragment())
+            7 -> replaceFragment(SettingsFragment())
         }
     }
 

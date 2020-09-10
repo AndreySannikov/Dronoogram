@@ -1,4 +1,4 @@
-package ru.degus.mytelegram.ui.screens
+package ru.degus.mytelegram.ui.screens.base
 
 import android.view.*
 import androidx.fragment.app.Fragment

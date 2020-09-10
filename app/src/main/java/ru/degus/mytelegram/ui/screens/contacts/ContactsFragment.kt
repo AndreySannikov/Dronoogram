@@ -1,4 +1,4 @@
-package ru.degus.mytelegram.ui.screens
+package ru.degus.mytelegram.ui.screens.contacts
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_contacts.*
 import ru.degus.mytelegram.R
 import ru.degus.mytelegram.database.*
 import ru.degus.mytelegram.models.CommonModel
+import ru.degus.mytelegram.ui.screens.base.BaseFragment
 import ru.degus.mytelegram.ui.screens.single_chat.SingleChatFragment
 import ru.degus.mytelegram.utilits.*
 
@@ -45,7 +46,9 @@ class ContactsFragment : BaseFragment(R.layout.fragment_contacts) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsHolder {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.contact_item, parent, false)
-                return ContactsHolder(view)
+                return ContactsHolder(
+                    view
+                )
             }
 
             override fun onBindViewHolder(

@@ -3,7 +3,7 @@ package ru.degus.mytelegram.ui.screens.settings
 import kotlinx.android.synthetic.main.fragment_change_username.*
 import ru.degus.mytelegram.R
 import ru.degus.mytelegram.database.*
-import ru.degus.mytelegram.ui.screens.BaseChangeFragment
+import ru.degus.mytelegram.ui.screens.base.BaseChangeFragment
 import ru.degus.mytelegram.utilits.*
 import java.util.*
 

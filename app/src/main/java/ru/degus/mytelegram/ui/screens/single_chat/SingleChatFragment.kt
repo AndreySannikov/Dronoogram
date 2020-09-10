@@ -1,7 +1,6 @@
 package ru.degus.mytelegram.ui.screens.single_chat
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.view.*
@@ -24,10 +23,9 @@ import ru.degus.mytelegram.R
 import ru.degus.mytelegram.database.*
 import ru.degus.mytelegram.models.CommonModel
 import ru.degus.mytelegram.models.UserModel
-import ru.degus.mytelegram.ui.screens.BaseFragment
+import ru.degus.mytelegram.ui.screens.base.BaseFragment
 import ru.degus.mytelegram.ui.message_recycler_view.views.AppViewFactory
 import ru.degus.mytelegram.ui.screens.main_list.MainListFragment
-import ru.degus.mytelegram.ui.screens.settings.ChangeNameFragment
 import ru.degus.mytelegram.utilits.*
 
 class SingleChatFragment(private val contact: CommonModel) : BaseFragment(R.layout.fragment_single_chat) {

@@ -27,4 +27,12 @@
     <string name="settings_input_bio">bio</string>
     <string name="clear_chat">Clear chat</string>
     <string name="delete_chat">Delete chat</string>
+    <string name="create_group">Create group</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCKgAB43OzRda0HncezPYVUy_Vz1ycqQeo</string>
+
+    <plurals name="count_members">
+        <item quantity="one">%d member</item>
+        <item quantity="other">%d members</item>
+    </plurals>
 </resources>
